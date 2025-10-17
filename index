@@ -18,7 +18,7 @@
 
   <script>
   // ✅ Ganti URL ini dengan URL yang muncul di browser kamu (yang ada "script.googleusercontent.com/macros/echo?...")
-  const sheetAPI = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLiPncEUNXmqpc14zqHO52Ck-zyRmuYSU7YY-gVEfnd-AVY9eBtfHJtLKBwpw6wIT4PlMT8OQhV_baSgCJSjQzWUnbsmZYfVP4WzjxFhQeQWxpDB_zz20R-1v2jLypgbsc3vrmV-7RSzP1XOVlQbdBHjhpWaL1ltdTNEMpga_65D0bhIIhhSPCl7qKNgaEW67tKopciym6vwrCmXDegeL2ZQRpcPQVEPZT95xfpEafQGcmMB8avR7eO0-fAkqFtfvfbZgfd3gN8I-BHo2HCR8xpHIBhzNw&lib=M6Pzzbi7rCXWFasJwgDLHW_TkCZgkOAXv"; 
+  const sheetAPI = "https://script.google.com/macros/s/AKfycbwAIljawlyj2hspgR2LmOGubEqvkeWuorFtJSD5szTJXFyupE0-LagC4JcHe7RGdlH5/exec"; 
 
   fetch(sheetAPI)
     .then(res => res.json())
