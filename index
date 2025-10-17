@@ -17,7 +17,7 @@
   <div id="calendar"></div>
 
   <script>
-    const sheetAPI = "PASTE_URL_APPS_SCRIPT_KAMU_DI_SINI";
+    const sheetAPI = "https://script.google.com/macros/s/AKfycbxLsmNPH9iBrAqXDbPln262cBePzWL_ehMvDVRPr1Tq95ryAVuFwEzfFodZTf4SV-iL/exec";
 
     fetch(sheetAPI)
       .then(res => res.json())
