@@ -17,26 +17,33 @@
   <div id="calendar"></div>
 
   <script>
-    const sheetAPI = "https://script.google.com/macros/s/AKfycbxLsmNPH9iBrAqXDbPln262cBePzWL_ehMvDVRPr1Tq95ryAVuFwEzfFodZTf4SV-iL/exec";
+  // ✅ Ganti URL ini dengan URL yang muncul di browser kamu (yang ada "script.googleusercontent.com/macros/echo?...")
+  const sheetAPI = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLiPncEUNXmqpc14zqHO52Ck-zyRmuYSU7YY-gVEfnd-AVY9eBtfHJtLKBwpw6wIT4PlMT8OQhV_baSgCJSjQzWUnbsmZYfVP4WzjxFhQeQWxpDB_zz20R-1v2jLypgbsc3vrmV-7RSzP1XOVlQbdBHjhpWaL1ltdTNEMpga_65D0bhIIhhSPCl7qKNgaEW67tKopciym6vwrCmXDegeL2ZQRpcPQVEPZT95xfpEafQGcmMB8avR7eO0-fAkqFtfvfbZgfd3gN8I-BHo2HCR8xpHIBhzNw&lib=M6Pzzbi7rCXWFasJwgDLHW_TkCZgkOAXv"; 
 
-    fetch(sheetAPI)
-      .then(res => res.json())
-      .then(data => {
-        const events = data.map(row => ({
-          title: `${row.nama} (${row.jenis})`,
-          start: row.start,
-          end: row.end,
-          description: row.keterangan
-        }));
+  fetch(sheetAPI)
+    .then(res => res.json())
+    .then(data => {
+      console.log("Data dari Google Sheet:", data); // cek di console GitHub Pages
 
-        const calendarEl = document.getElementById('calendar');
-        const calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          events: events
-        });
-        calendar.render();
-      })
-      .catch(err => console.error(err));
-  </script>
+      // mapping data JSON ke event kalender
+      const events = data.map(row => ({
+        title: `${row.nama} (${row.jenis})`,
+        start: row.start,
+        end: row.end,
+        description: row.keterangan || ''
+      }));
+
+      const calendarEl = document.getElementById('calendar');
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: events,
+        eventColor: '#3788d8',
+        displayEventTime: false
+      });
+      calendar.render();
+    })
+    .catch(err => console.error("Gagal ambil data:", err));
+</script>
+
 </body>
 </html>
